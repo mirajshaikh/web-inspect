@@ -44,7 +44,7 @@ export default function handler(req, res) {
 			res.status(200).json({ ...results, status: 200 });
 		} catch (error) {
 			console.error(error);
-			res.status(500).json({ ...error, status: 400 });
+			res.status(500).json({ error: error, ...error, status: 400 });
 		}
 
 		await wappalyzer.destroy();

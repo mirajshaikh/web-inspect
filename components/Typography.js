@@ -8,4 +8,6 @@ export const Para = styled.p`
 	text-align: ${(props) => (props.align ? props.align : 'inherit')};
 	font-family: ${(props) => (props.family ? props.family : 'inherit')};
 	font-weight: ${(props) => (props.weight ? props.weight : 'inherit')};
+	margin: ${(props) => (props.margin ? props.margin : 'initial')};
+	padding: ${(props) => (props.padding ? props.padding : 'initial')};
 `;

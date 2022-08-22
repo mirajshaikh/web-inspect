@@ -13,8 +13,9 @@ const HeaderContainer = styled.header`
 	max-width: 1600px;
 	margin: 0 auto;
 	padding: 15px 20px;
-	background-color: rgba(255, 255, 255, 0.2);
-	backdrop-filter: blur(5px);
+	background-color: rgba(0, 255, 255, 0.2);
+	backdrop-filter: blur(3px);
+	font-family: 'Silkscreen', cursive;
 `;
 
 const Menu = styled.ul`
@@ -74,27 +75,19 @@ function Header() {
 				<div>
 					<FlexDiv alignItem='center' gap='10px'>
 						<RiSearchEyeLine size='40px' />{' '}
-						<Para family="'Silkscreen', cursive" size='25px'>
-							WEB INSPECT
-						</Para>
+						<Para size='25px'>WEB INSPECT</Para>
 					</FlexDiv>
 				</div>
 				<div>
 					<Menu>
 						<MenuItem className='active'>
-							<Para family="'Silkscreen', cursive" size='20px'>
-								HOME
-							</Para>
+							<Para size='20px'>HOME</Para>
 						</MenuItem>
 						<MenuItem>
-							<Para family="'Silkscreen', cursive" size='20px'>
-								ABOUT
-							</Para>
+							<Para size='20px'>ABOUT</Para>
 						</MenuItem>
 						<MenuItem>
-							<Para family="'Silkscreen', cursive" size='20px'>
-								Thanks
-							</Para>
+							<Para size='20px'>THANKS</Para>
 						</MenuItem>
 					</Menu>
 				</div>

@@ -41,10 +41,10 @@ export default function handler(req, res) {
 			const results = await site.analyze();
 
 			console.log(JSON.stringify(results, null, 2));
-			res.status(200).json(results);
+			res.status(200).json({ ...results, status: 200 });
 		} catch (error) {
 			console.error(error);
-			res.status(500).json(error);
+			res.status(500).json({ ...error, status: 400 });
 		}
 
 		await wappalyzer.destroy();

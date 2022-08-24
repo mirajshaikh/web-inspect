@@ -12,9 +12,8 @@ export default function handler(req, res) {
 		headers: {},
 		maxDepth: 3,
 		maxUrls: 1,
-		maxWait: 7000,
 		recursive: false,
-		probe: true,
+		probe: false,
 		proxy: false,
 		userAgent:
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36',

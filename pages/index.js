@@ -3,7 +3,7 @@
 
 import styled from '@emotion/styled';
 import Head from 'next/head';
-import { Container, FlexDiv } from '../components/Containers';
+import { Container, FlexDiv, GridDiv } from '../components/Containers';
 import Header from '../components/Header';
 import OrbitBg from '../components/OrbitBg';
 import { BiSearchAlt } from 'react-icons/bi';
@@ -54,6 +54,7 @@ export default function Home() {
 	const [result, setResult] = useState(false);
 	const [invalidUrl, setInvalidUrl] = useState(false);
 	const [data, setData] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
 
 	function removeHttp(url) {
 		return url
@@ -70,6 +71,7 @@ export default function Home() {
 
 	const getWebsiteDetail = async (e) => {
 		e.preventDefault();
+		setIsLoading(true);
 		const sanitizedUrl = removeHttp(url);
 		console.log(sanitizedUrl);
 		if (isValidURL(`https://${sanitizedUrl}`)) {
@@ -99,13 +101,15 @@ export default function Home() {
 				});
 				setData(groupedData);
 				console.log('uniqueObjArray', groupedData);
-
+				setIsLoading(false);
 				// setData(res);
 			} else {
 				console.log(res);
+				setIsLoading(false);
 			}
 		} else {
 			setInvalidUrl(true);
+			setIsLoading(false);
 		}
 	};
 	return (
@@ -169,7 +173,7 @@ export default function Home() {
 					{result && (
 						<Container
 							maxWidth='1600px'
-							padding='100px 100px 0'
+							padding='100px 30px 0'
 							margin='0 auto'
 							maxHeight='calc(100vh - 100px)'>
 							<FlexDiv gap='10px' justifyContent='center'>
@@ -178,12 +182,23 @@ export default function Home() {
 									{result}
 								</Para>
 							</FlexDiv>
-							<FlexDiv justifyContent='center' padding='60px'>
-								<Lottie
-									animationData={searchingAnimation}
-									loop={true}
-								/>
-							</FlexDiv>
+							{isLoading && (
+								<FlexDiv justifyContent='center' padding='60px'>
+									<Lottie
+										animationData={searchingAnimation}
+										loop={true}
+									/>
+								</FlexDiv>
+							)}
+							{data && (
+								<GridDiv cols='1fr 1fr'>
+									{data.map((technologie) => (
+										<Para key={technologie.slug} size='25px'>
+											{technologie.name}
+										</Para>
+									))}
+								</GridDiv>
+							)}
 						</Container>
 					)}
 				</Container>

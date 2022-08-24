@@ -102,7 +102,8 @@ function OrbitBg() {
 			position='absolute'
 			height='100vh'
 			width='100vw'
-			overflow='hidden'>
+			overflow='hidden'
+			zIndex='-1'>
 			<FlexDiv alignItem='center' justifyContent='center'>
 				<Container position='absolute'>
 					<Orbit size='500' anim='clockwise'>
